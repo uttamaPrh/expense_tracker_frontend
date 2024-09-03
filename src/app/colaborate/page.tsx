@@ -1,7 +1,7 @@
 import React from "react";
 
 const Colaborate = () => {
-  return <div>Colaborate</div>;
+  return <div className="text-white">Colaborate</div>;
 };
 
 export default Colaborate;
