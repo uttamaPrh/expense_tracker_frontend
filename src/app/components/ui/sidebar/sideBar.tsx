@@ -32,15 +32,16 @@ const SideBar = () => {
           return (
             <div key={index}>
               <div className="pb-2"> {sidebarheading.heading} </div>
+
               {sidebarheading.sidebaritems.map((sidebaritems, index) => (
                 <Link href={sidebaritems.link} key={index}>
                   {" "}
                   <div
-                    className={`flex items-center gap-3 text-sm ${
+                    className={`flex items-center gap-3 text-sm   ${
                       pathName == sidebaritems.link
                         ? "bg-white text-black"
-                        : " "
-                    }  hover:bg-white hover:text-dark cursor-pointer p-3 rounded-lg `}
+                        : "  text-white/70 hover:text-white "
+                    }   cursor-pointer p-3 rounded-lg `}
                   >
                     {sidebaritems.icon}
                     {sidebaritems.label}
