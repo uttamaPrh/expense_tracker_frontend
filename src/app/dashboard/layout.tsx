@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import SideBar from "../components/ui/sidebar/sideBar";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
         <body
           className={`${lexend.className} bg-dark flex gap-[40px] p-[40px]`}
         >
+          <SideBar />
           {children}
         </body>
       </html>

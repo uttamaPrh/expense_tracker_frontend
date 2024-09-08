@@ -32,7 +32,6 @@ const SideBar = () => {
           return (
             <div key={index}>
               <div className="pb-2"> {sidebarheading.heading} </div>
-
               {sidebarheading.sidebaritems.map((sidebaritems, index) => (
                 <Link href={sidebaritems.link} key={index}>
                   {" "}

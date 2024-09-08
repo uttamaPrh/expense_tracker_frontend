@@ -12,7 +12,6 @@ const DashboardServiceCard = () => {
           const cardBg = isEven ? "bg-white" : "bg-light";
           // const iconBg = isEven ? "bg-light" : "bg-white";
           const textColor = isEven ? "text-dark" : "text-white";
-
           return (
             <button
               key={index}
