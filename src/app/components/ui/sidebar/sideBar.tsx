@@ -1,11 +1,13 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import Line from "./line/line";
 import { siderbaritems } from "@/api/sidebar";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 
 const SideBar = () => {
+  const pathName = usePathname();
   return (
     <div className=" bg-white/5 px-10 rounded-xl py-7">
       <section className="flex gap-5 flex-col items-center">
@@ -28,13 +30,17 @@ const SideBar = () => {
       <section className="text-white">
         {siderbaritems.map((sidebarheading, index) => {
           return (
-            <div className="mt-5" key={index}>
-              <div> {sidebarheading.heading} </div>
+            <div key={index}>
+              <div className="pb-2"> {sidebarheading.heading} </div>
 
               {sidebarheading.sidebaritems.map((sidebaritems, index) => (
                 <Link href={sidebaritems.link} key={index}>
                   {" "}
-                  <div className="flex items-center gap-3 text-sm my-5 text-white/70 hover:text-white cursor-pointer ">
+                  <div
+                    className={`flex items-center gap-3 text-sm ${
+                      pathName == sidebaritems.link ? "bg-white text-dark" : " "
+                    } text-white/70 hover:bg-white hover:text-dark cursor-pointer p-3 rounded-lg `}
+                  >
                     {sidebaritems.icon}
                     {sidebaritems.label}
                   </div>{" "}
@@ -46,7 +52,6 @@ const SideBar = () => {
       </section>
 
       <button className="bg-cream rounded-full px-5 py-2 mt-5">Sign Out</button>
-    
     </div>
   );
 };
