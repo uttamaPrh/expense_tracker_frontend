@@ -6,11 +6,11 @@ const DashboardServiceCard = () => {
   return (
     <div className="bg-white/2 flex flex-col gap-10 mt-10 mx-6  ">
       <Heading heading="Our Services" />
+
       <div className="grid gap-3 lg:grid-cols-6 md:grid-cols-2 grid-cols-1">
         {ServiceCardComponent.map((ServiceCardComponent, index) => {
           const isEven = index % 2 === 0;
           const cardBg = isEven ? "bg-white" : "bg-light";
-          // const iconBg = isEven ? "bg-light" : "bg-white";
           const textColor = isEven ? "text-dark" : "text-white";
           return (
             <button
