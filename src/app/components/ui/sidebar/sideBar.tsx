@@ -38,8 +38,10 @@ const SideBar = () => {
                   {" "}
                   <div
                     className={`flex items-center gap-3 text-sm ${
-                      pathName == sidebaritems.link ? "bg-white text-dark" : " "
-                    } text-white/70 hover:bg-white hover:text-dark cursor-pointer p-3 rounded-lg `}
+                      pathName == sidebaritems.link
+                        ? "bg-white text-black"
+                        : " "
+                    }  hover:bg-white hover:text-dark cursor-pointer p-3 rounded-lg `}
                   >
                     {sidebaritems.icon}
                     {sidebaritems.label}
