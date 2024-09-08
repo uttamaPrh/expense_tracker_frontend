@@ -21,14 +21,14 @@ const SideBar = () => {
         <p className="text-white "> Hi, Mary</p>
       </section>
 
-      <div className="py-6">
+      <div className="py-5">
         <Line />
       </div>
 
       <section className="text-white">
         {siderbaritems.map((sidebarheading, index) => {
           return (
-            <div className="mt-5">
+            <div className="mt-5" key={index}>
               <div> {sidebarheading.heading} </div>
 
               {sidebarheading.sidebaritems.map((sidebaritems, index) => (
@@ -42,12 +42,11 @@ const SideBar = () => {
               ))}
             </div>
           );
-          
         })}
-
       </section>
 
       <button className="bg-cream rounded-full px-5 py-2 mt-5">Sign Out</button>
+    
     </div>
   );
 };
