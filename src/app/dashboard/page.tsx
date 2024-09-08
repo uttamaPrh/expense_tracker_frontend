@@ -1,15 +1,13 @@
-import React from "react";
-import { IoWalletOutline } from "react-icons/io5";
-import Heading from "../components/ui/heading";
+import React from 'react'
+import DashboardServiceCard from './components/ourService/serviceCard';
 
-const Dashboard = () => {
+const Dashboardpage = () => {
   return (
-    <>
-      <div className="flex flex-col items-center bg-green p-8">
-        <IoWalletOutline />
-      </div>
-    </>
-  );
-};
+    <div>
+      <DashboardServiceCard/>
 
-export default Dashboard;
+    </div>
+  )
+}
+
+export default Dashboardpage;
