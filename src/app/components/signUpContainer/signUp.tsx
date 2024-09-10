@@ -1,59 +1,36 @@
 "use client";
-import { postSignUp } from "@/app/data/action";
-import { useStore } from "@/app/store/signUpStore";
 import React from "react";
-
+import InputField from "./components/inputField";
+import useSignUp from "./hook/useSignUp";
 const SignUp = () => {
-  const { username, setUsername, email, setEmail, password, setPassword } =
-    useStore();
-
-  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.target.value);
-  };
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const response = await postSignUp(username, email, password);
-    console.log(response);
-    // Clear the form
-    setUsername("");
-    setEmail("");
-    setPassword("");
-  };
-
+  const { formik } = useSignUp();
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <button type="submit">Submit</button>
+      <form onSubmit={formik.handleSubmit}>
+        <div className="flex flex-col gap-6">
+          <InputField
+            fieldName="username"
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            placeholder="Enter Username"
+            type="text"
+          />
+          <InputField
+            fieldName="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            placeholder="Enter Email"
+            type="email"
+          />
+          <InputField
+            fieldName="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            placeholder="Enter Password"
+            type="password"
+          />
+          <button type="submit">Submit Form</button>
+        </div>
       </form>
     </>
   );
